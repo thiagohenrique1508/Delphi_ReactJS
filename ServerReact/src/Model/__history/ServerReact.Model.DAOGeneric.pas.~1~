@@ -1,0 +1,7 @@
+unit ServerReact.Model.DAOGeneric;
+
+interface
+
+implementation
+
+end.

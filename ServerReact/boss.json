@@ -1,0 +1,14 @@
+{
+	"name": "ServerAula",
+	"description": "",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./",
+	"projects": [],
+	"dependencies": {
+		"github.com/hashload/horse": "^1.6.8",
+		"https://github.com/bittencourtthulio/simpleorm": ">0.0.0",
+		"https://github.com/ezequieljuliano/datasetconverter4delphi": ">0.0.0",
+		"https://github.com/hashload/jhonson": "^1.0.3"
+	}
+}

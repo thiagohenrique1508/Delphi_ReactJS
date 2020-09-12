@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/01/18 13:01:42.000.690,=C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/11 10:59:23.000.672,=C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/11 10:59:52.000.837,C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Projetos\Cursos\ReactJs\Oficial\Gerador\Unit1.dfm</Transaction>
+    <Transaction>2020/02/11 10:59:52.000.837,C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\Cursos\ReactJs\Oficial\Gerador\Unit1.pas</Transaction>
+    <Transaction>2020/02/11 10:59:55.000.639,C:\Users\thuli\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projetos\Cursos\ReactJs\Oficial\Gerador\Gerador.dproj</Transaction>
+  </Transactions>
+</BorlandProject>

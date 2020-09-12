@@ -1,0 +1,7 @@
+unit ServerReact.Model.Entidades.USER;
+
+interface
+
+implementation
+
+end.

@@ -1,0 +1,59 @@
+unit ServerReact.Model.DAOGeneric;
+
+interface
+
+uses
+  System.JSON,
+  REST.Json,
+  SimpleInterface,
+  SimpleDAO,
+  SimpleAttributes,
+  SimpleQueryFiredac,
+  Data.DB;
+
+type
+
+  iDAOGeneric<T : class> = interface
+    ['{1DAE62A0-0C6E-4FA6-BF9E-2377A25F267C}']
+    function Find : TJsonArray; overload;
+  end;
+
+  TDAOGeneric<T : class, constructor> = class(TInterfacedObject, iDAOGeneric<T>)
+  private
+    FConn : iSimpleQuery;
+    FDAO : iSimpleDAO<T>;
+    FDataSource : TDataSource;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    class function New : iDAOGeneric<T>;
+    function Find : TJsonArray; overload;
+  end;
+
+implementation
+
+{ TDAOGeneric<T> }
+
+constructor TDAOGeneric<T>.Create;
+begin
+  FDataSource := TDataSource.Create(nil);
+
+end;
+
+destructor TDAOGeneric<T>.Destroy;
+begin
+  FDataSource.Free;
+  inherited;
+end;
+
+function TDAOGeneric<T>.Find: TJsonArray;
+begin
+
+end;
+
+class function TDAOGeneric<T>.New: iDAOGeneric<T>;
+begin
+
+end;
+
+end.

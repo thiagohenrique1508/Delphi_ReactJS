@@ -1,0 +1,29 @@
+unit ServerReact.Controller.USER;
+
+interface
+
+uses
+  Horse,
+  System.JSON,
+  ServerReact.Model.DAOGeneric,
+  ServerReact.Model.Entidades.USER;
+
+procedure Registry(App : THorse);
+procedure Get(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+
+implementation
+
+procedure Registry(App : THorse);
+begin
+  App.Get('/users', Get);
+end;
+
+procedure Get(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  FDAO : iDAOGeneric<TUSER>;
+begin
+  FDAO := TDAOGeneric<TUSER>.New;
+  Res.Send<TJsonArray>(FDAO.Find);
+end;
+
+end.

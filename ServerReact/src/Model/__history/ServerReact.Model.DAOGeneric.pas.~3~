@@ -1,0 +1,69 @@
+unit ServerReact.Model.DAOGeneric;
+
+interface
+
+uses
+  System.JSON,
+  REST.Json,
+  SimpleInterface,
+  SimpleDAO,
+  SimpleAttributes,
+  SimpleQueryFiredac,
+  Data.DB,
+  DataSetConverter4D,
+  DataSetConverter4D.Impl,
+  DataSetConverter4D.Helper,
+  DataSetConverter4D.Util;
+
+type
+
+  iDAOGeneric<T : class> = interface
+    ['{1DAE62A0-0C6E-4FA6-BF9E-2377A25F267C}']
+    function Find : TJsonArray; overload;
+  end;
+
+  TDAOGeneric<T : class, constructor> = class(TInterfacedObject, iDAOGeneric<T>)
+  private
+    FConn : iSimpleQuery;
+    FDAO : iSimpleDAO<T>;
+    FDataSource : TDataSource;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    class function New : iDAOGeneric<T>;
+    function Find : TJsonArray; overload;
+  end;
+
+implementation
+
+{ TDAOGeneric<T> }
+
+uses ServerReact.Model.Connection;
+
+constructor TDAOGeneric<T>.Create;
+begin
+  FDataSource := TDataSource.Create(nil);
+  ServerReact.Model.Connection.Connected;
+  FConn := TSimpleQueryFiredac.New(ServerReact.Model.Connection.FConn);
+  FDAO := TSimpleDAO<T>.New(FConn).DataSource(FDataSource);
+end;
+
+destructor TDAOGeneric<T>.Destroy;
+begin
+  FDataSource.Free;
+  ServerReact.Model.Connection.Disconnected;
+  inherited;
+end;
+
+function TDAOGeneric<T>.Find: TJsonArray;
+begin
+  FDAO.Find;
+  Result := FDataSource.DataSet.AsJSONArray;
+end;
+
+class function TDAOGeneric<T>.New: iDAOGeneric<T>;
+begin
+
+end;
+
+end.
